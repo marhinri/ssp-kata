@@ -20,5 +20,5 @@ public class Bot {
 
     private int lost;
 
-    private URI clientURL;
+    private String clientURL;
 }

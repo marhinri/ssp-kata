@@ -14,6 +14,9 @@ public class BotEntityMapper {
     public BotEntity mapBotToBotEntity(BotWrite botWrite) {
         return BotEntity.builder()
                 .name(botWrite.getName())
+                .credit(100)
+                .won(0)
+                .lost(0)
                 .clientURL(botWrite.getClientURL())
                 .build();
     }

@@ -47,7 +47,7 @@ public class BotResourceTest extends JerseySpringTest {
 
         when(botService.addBot(BotWrite.builder()
                 .name(name)
-                .clientURL(URI.create(url))
+                .clientURL(url)
                 .build()))
                 .thenReturn(BotId.builder().id(uuid).build());
 
@@ -69,7 +69,7 @@ public class BotResourceTest extends JerseySpringTest {
                 .won(0)
                 .lost(0)
                 .credit(100)
-                .clientURL(URI.create("http://localhost:1234"))
+                .clientURL("http://localhost:1234")
                 .build();
 
         Bot bot2 = Bot.builder()
@@ -78,7 +78,7 @@ public class BotResourceTest extends JerseySpringTest {
                 .won(0)
                 .lost(0)
                 .credit(100)
-                .clientURL(URI.create("http://localhost:2345"))
+                .clientURL("http://localhost:2345")
                 .build();
 
         when(botService.getBots()).thenReturn(List.of(bot1, bot2));
@@ -101,7 +101,7 @@ public class BotResourceTest extends JerseySpringTest {
                 .won(0)
                 .lost(0)
                 .credit(100)
-                .clientURL(URI.create("http://localhost:1234"))
+                .clientURL("http://localhost:1234")
                 .build();
 
         when(botService.getBot(uuid)).thenReturn(bot);

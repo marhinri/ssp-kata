@@ -36,7 +36,7 @@ class BotWriteServiceTest {
 
         BotWrite botWrite = BotWrite.builder()
                 .name("sample-bot")
-                .clientURL(URI.create("http://localhost:1234"))
+                .clientURL("http://localhost:1234")
                 .build();
 
         BotEntity botEntity = BotEntity.builder()

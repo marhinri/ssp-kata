@@ -1,16 +1,18 @@
 package de.marchinrichs.sspkata.bot;
 
 import jakarta.persistence.*;
-import lombok.Builder;
-import lombok.Getter;
+import lombok.*;
 
 import java.net.URI;
 import java.util.UUID;
 
 @Entity
 @Table(name = "Bot")
-@Getter
 @Builder
+@Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
 public class BotEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
@@ -24,5 +26,5 @@ public class BotEntity {
 
     private int lost;
 
-    private URI clientURL;
+    private String clientURL;
 }
