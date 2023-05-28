@@ -8,7 +8,16 @@ import java.util.UUID;
 @Service
 @RequiredArgsConstructor
 public class BotService {
+
+    private final BotRepository botRepository;
+
+    private final BotEntityMapper botEntityMapper;
+
     public BotId addBot(Bot bot) {
-        return BotId.builder().id(UUID.randomUUID()).build();
+
+        BotEntity botEntity = botRepository.save(
+                botEntityMapper.mapBotToBotEntity(bot));
+
+        return BotId.builder().id(botEntity.getId()).build();
     }
 }

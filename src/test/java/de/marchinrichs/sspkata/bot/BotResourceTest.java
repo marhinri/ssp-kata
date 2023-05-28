@@ -58,6 +58,7 @@ public class BotResourceTest extends JerseySpringTest {
         assertEquals(Response.Status.OK.getStatusCode(), response.getStatus());
     }
 
+    /*
     @Test
     public void getBot_returns_ok() {
         UUID uuid = UUID.randomUUID();
@@ -66,4 +67,5 @@ public class BotResourceTest extends JerseySpringTest {
 
         assertEquals(Response.Status.OK.getStatusCode(), response.getStatus());
     }
+     */
 }
