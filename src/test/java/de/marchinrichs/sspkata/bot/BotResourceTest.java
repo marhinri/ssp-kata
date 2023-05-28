@@ -1,5 +1,8 @@
 package de.marchinrichs.sspkata.bot;
 
+import de.marchinrichs.sspkata.bot.model.Bot;
+import de.marchinrichs.sspkata.bot.model.BotId;
+import de.marchinrichs.sspkata.bot.model.BotWrite;
 import jakarta.ws.rs.NotFoundException;
 import jakarta.ws.rs.client.Entity;
 import jakarta.ws.rs.core.Response;
@@ -42,7 +45,7 @@ public class BotResourceTest extends JerseySpringTest {
         String url = "http://localhost:1234";
         UUID uuid = UUID.randomUUID();
 
-        when(botService.addBot(Bot.builder()
+        when(botService.addBot(BotWrite.builder()
                 .name(name)
                 .clientURL(URI.create(url))
                 .build()))
@@ -60,7 +63,7 @@ public class BotResourceTest extends JerseySpringTest {
         UUID uuid1 = UUID.randomUUID();
         UUID uuid2 = UUID.randomUUID();
 
-        BotInfo botInfo1 = BotInfo.builder()
+        Bot bot1 = Bot.builder()
                 .id(uuid1)
                 .name("sample-bot-1")
                 .won(0)
@@ -69,7 +72,7 @@ public class BotResourceTest extends JerseySpringTest {
                 .clientURL(URI.create("http://localhost:1234"))
                 .build();
 
-        BotInfo botInfo2 = BotInfo.builder()
+        Bot bot2 = Bot.builder()
                 .id(uuid2)
                 .name("sample-bot-2")
                 .won(0)
@@ -78,7 +81,7 @@ public class BotResourceTest extends JerseySpringTest {
                 .clientURL(URI.create("http://localhost:2345"))
                 .build();
 
-        when(botService.getBots()).thenReturn(List.of(botInfo1, botInfo2));
+        when(botService.getBots()).thenReturn(List.of(bot1, bot2));
         Response response = target("bots").request().get();
 
         JSONArray jsonArray = new JSONArray(response.readEntity(String.class));
@@ -92,7 +95,7 @@ public class BotResourceTest extends JerseySpringTest {
     public void getBot_returns_ok() throws JSONException {
         UUID uuid = UUID.randomUUID();
 
-        BotInfo botInfo = BotInfo.builder()
+        Bot bot = Bot.builder()
                 .id(uuid)
                 .name("sample-bot")
                 .won(0)
@@ -101,7 +104,7 @@ public class BotResourceTest extends JerseySpringTest {
                 .clientURL(URI.create("http://localhost:1234"))
                 .build();
 
-        when(botService.getBot(uuid)).thenReturn(botInfo);
+        when(botService.getBot(uuid)).thenReturn(bot);
         Response response = target("bots").path(uuid.toString()).request().get();
 
         JSONObject jsonObject = new JSONObject(response.readEntity(String.class));

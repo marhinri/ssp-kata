@@ -1,5 +1,8 @@
 package de.marchinrichs.sspkata.bot;
 
+import de.marchinrichs.sspkata.bot.model.Bot;
+import de.marchinrichs.sspkata.bot.model.BotId;
+import de.marchinrichs.sspkata.bot.model.BotWrite;
 import jakarta.ws.rs.NotFoundException;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -15,19 +18,19 @@ public class BotService {
 
     private final BotEntityMapper botEntityMapper;
 
-    public BotId addBot(Bot bot) {
+    public BotId addBot(BotWrite botWrite) {
 
         BotEntity botEntity = botRepository.save(
-                botEntityMapper.mapBotToBotEntity(bot));
+                botEntityMapper.mapBotToBotEntity(botWrite));
 
         return BotId.builder().id(botEntity.getId()).build();
     }
 
-    public BotInfo getBot(UUID uuid) throws NotFoundException {
+    public Bot getBot(UUID uuid) throws NotFoundException {
         return botEntityMapper.mapBotEntityToBotInfo(botRepository.findById(uuid));
     }
 
-    public List<BotInfo> getBots() {
+    public List<Bot> getBots() {
         return botEntityMapper.mapBotEntitieListToBotInfoList(botRepository.findAll());
     }
 }

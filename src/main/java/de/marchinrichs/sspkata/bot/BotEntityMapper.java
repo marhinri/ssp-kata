@@ -1,27 +1,27 @@
 package de.marchinrichs.sspkata.bot;
 
+import de.marchinrichs.sspkata.bot.model.Bot;
+import de.marchinrichs.sspkata.bot.model.BotWrite;
 import org.springframework.stereotype.Component;
 
-import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
 
 @Component
 public class BotEntityMapper {
 
-    public BotEntity mapBotToBotEntity(Bot bot) {
+    public BotEntity mapBotToBotEntity(BotWrite botWrite) {
         return BotEntity.builder()
-                .name(bot.getName())
-                .clientURL(bot.getClientURL())
+                .name(botWrite.getName())
+                .clientURL(botWrite.getClientURL())
                 .build();
     }
 
-    public BotInfo mapBotEntityToBotInfo(Optional<BotEntity> byId) {
-        return BotInfo.builder().build();
+    public Bot mapBotEntityToBotInfo(Optional<BotEntity> byId) {
+        return Bot.builder().build();
     }
 
-    public List<BotInfo> mapBotEntitieListToBotInfoList(Iterable<BotEntity> all) {
+    public List<Bot> mapBotEntitieListToBotInfoList(Iterable<BotEntity> all) {
         return List.of();
     }
 }

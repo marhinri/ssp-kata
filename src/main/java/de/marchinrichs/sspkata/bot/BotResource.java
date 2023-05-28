@@ -1,5 +1,8 @@
 package de.marchinrichs.sspkata.bot;
 
+import de.marchinrichs.sspkata.bot.model.Bot;
+import de.marchinrichs.sspkata.bot.model.BotId;
+import de.marchinrichs.sspkata.bot.model.BotWrite;
 import jakarta.ws.rs.*;
 import jakarta.ws.rs.core.MediaType;
 import jakarta.ws.rs.core.Response;
@@ -18,9 +21,9 @@ public class BotResource {
     @POST
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
-    public Response addBot(Bot bot) {
+    public Response addBot(BotWrite botWrite) {
 
-        BotId botId = botService.addBot(bot);
+        BotId botId = botService.addBot(botWrite);
 
         return Response
                 .status(Response.Status.CREATED.getStatusCode())
@@ -40,15 +43,15 @@ public class BotResource {
     @Path("{id}")
     @Produces(MediaType.APPLICATION_JSON)
     public Response getBot(@PathParam("id") UUID uuid) {
-        BotInfo botInfo;
+        Bot bot;
 
         try {
-            botInfo = botService.getBot(uuid);
+            bot = botService.getBot(uuid);
         } catch (NotFoundException e) {
             return Response.status(Response.Status.NOT_FOUND.getStatusCode()).build();
         }
 
         return Response.status(Response.Status.OK.getStatusCode())
-                .entity(botInfo).build();
+                .entity(bot).build();
     }
 }

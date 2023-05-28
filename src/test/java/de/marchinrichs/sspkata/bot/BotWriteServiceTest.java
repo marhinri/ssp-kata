@@ -1,10 +1,11 @@
 package de.marchinrichs.sspkata.bot;
 
+import de.marchinrichs.sspkata.bot.model.BotId;
+import de.marchinrichs.sspkata.bot.model.BotWrite;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
-import org.mockito.Mockito;
 import org.mockito.MockitoAnnotations;
 
 import java.net.URI;
@@ -13,7 +14,7 @@ import java.util.UUID;
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.when;
 
-class BotServiceTest {
+class BotWriteServiceTest {
 
     @Mock
     private BotRepository botRepository;
@@ -33,22 +34,22 @@ class BotServiceTest {
     void addBot() {
         UUID expectedId = UUID.randomUUID();
 
-        Bot bot = Bot.builder()
+        BotWrite botWrite = BotWrite.builder()
                 .name("sample-bot")
                 .clientURL(URI.create("http://localhost:1234"))
                 .build();
 
         BotEntity botEntity = BotEntity.builder()
                 .id(expectedId)
-                .name(bot.getName())
-                .clientURL(bot.getClientURL())
+                .name(botWrite.getName())
+                .clientURL(botWrite.getClientURL())
                 .build();
 
-        when(botEntityMapper.mapBotToBotEntity(bot)).thenReturn(botEntity);
+        when(botEntityMapper.mapBotToBotEntity(botWrite)).thenReturn(botEntity);
         when(botRepository.save(botEntity)).thenReturn(botEntity);
 
-        BotId botId = botService.addBot(bot);
+        BotId botId = botService.addBot(botWrite);
 
-        assertEquals(expectedId, botId.id);
+        assertEquals(expectedId, botId.getId());
     }
 }
