@@ -18,5 +18,11 @@ public class BotEntity {
 
     private String name;
 
+    private int credit;
+
+    private int won;
+
+    private int lost;
+
     private URI clientURL;
 }

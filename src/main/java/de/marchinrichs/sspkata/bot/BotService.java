@@ -8,6 +8,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 import java.util.UUID;
 
 @Service
@@ -27,7 +28,13 @@ public class BotService {
     }
 
     public Bot getBot(UUID uuid) throws NotFoundException {
-        return botEntityMapper.mapBotEntityToBotInfo(botRepository.findById(uuid));
+        Optional<BotEntity> botEntity = botRepository.findById(uuid);
+
+        if (botEntity.isEmpty()) {
+            throw new NotFoundException("entity with uuid " + uuid + " not found");
+        }
+
+        return botEntityMapper.mapBotEntityToBot(botRepository.findById(uuid).get());
     }
 
     public List<Bot> getBots() {
