@@ -4,6 +4,7 @@ import jakarta.ws.rs.NotFoundException;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.UUID;
 
 @Service
@@ -22,7 +23,11 @@ public class BotService {
         return BotId.builder().id(botEntity.getId()).build();
     }
 
-    public BotInfo getBotInfo(UUID uuid) throws NotFoundException {
+    public BotInfo getBot(UUID uuid) throws NotFoundException {
         return botEntityMapper.mapBotEntityToBotInfo(botRepository.findById(uuid));
+    }
+
+    public List<BotInfo> getBots() {
+        return botEntityMapper.mapBotEntitieListToBotInfoList(botRepository.findAll());
     }
 }

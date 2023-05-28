@@ -6,7 +6,6 @@ import jakarta.ws.rs.core.Response;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
 
-import java.util.ArrayList;
 import java.util.UUID;
 
 @Path("/bots")
@@ -33,7 +32,7 @@ public class BotResource {
     @Produces(MediaType.APPLICATION_JSON)
     public Response getBots() {
         return Response.status(Response.Status.OK.getStatusCode())
-                .entity(new ArrayList<>()).build();
+                .entity(botService.getBots()).build();
     }
 
 
@@ -44,7 +43,7 @@ public class BotResource {
         BotInfo botInfo;
 
         try {
-            botInfo = botService.getBotInfo(uuid);
+            botInfo = botService.getBot(uuid);
         } catch (NotFoundException e) {
             return Response.status(Response.Status.NOT_FOUND.getStatusCode()).build();
         }
