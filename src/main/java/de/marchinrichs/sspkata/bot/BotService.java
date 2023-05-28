@@ -1,5 +1,6 @@
 package de.marchinrichs.sspkata.bot;
 
+import jakarta.ws.rs.NotFoundException;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -19,5 +20,9 @@ public class BotService {
                 botEntityMapper.mapBotToBotEntity(bot));
 
         return BotId.builder().id(botEntity.getId()).build();
+    }
+
+    public BotInfo getBotInfo(UUID uuid) throws NotFoundException {
+        return botEntityMapper.mapBotEntityToBotInfo(botRepository.findById(uuid));
     }
 }

@@ -1,5 +1,6 @@
 package de.marchinrichs.sspkata.bot;
 
+import jakarta.ws.rs.NotFoundException;
 import jakarta.ws.rs.client.Entity;
 import jakarta.ws.rs.core.Response;
 import org.junit.jupiter.api.Test;
@@ -58,14 +59,35 @@ public class BotResourceTest extends JerseySpringTest {
         assertEquals(Response.Status.OK.getStatusCode(), response.getStatus());
     }
 
-    /*
+
     @Test
     public void getBot_returns_ok() {
         UUID uuid = UUID.randomUUID();
 
+        BotInfo botInfo = BotInfo.builder()
+                .id(uuid)
+                .name("sample-bot")
+                .won(0)
+                .lost(0)
+                .credit(100)
+                .clientURL(URI.create("http://localhost:1234"))
+                .build();
+
+        when(botService.getBotInfo(uuid)).thenReturn(botInfo);
         Response response = target("bots").path(uuid.toString()).request().get();
 
         assertEquals(Response.Status.OK.getStatusCode(), response.getStatus());
+        assertTrue(response.readEntity(String.class).contains("\"id\":\""+ uuid + "\""));
     }
-     */
+
+    @Test
+    public void getBot_returns_return_notFound() {
+        UUID uuid = UUID.randomUUID();
+
+        when(botService.getBotInfo(uuid)).thenThrow(NotFoundException.class);
+
+        Response response = target("bots").path(uuid.toString()).request().get();
+
+        assertEquals(Response.Status.NOT_FOUND.getStatusCode(), response.getStatus());
+    }
 }
