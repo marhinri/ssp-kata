@@ -1,6 +1,6 @@
-package de.marchinrichs.sspkata.sspbot.data;
+package de.marchinrichs.sspkata.sspbot.entity;
 
-import de.marchinrichs.sspkata.sspapi.round.Result;
+import de.marchinrichs.sspkata.sspapi.model.round.Result;
 import jakarta.persistence.*;
 import lombok.*;
 

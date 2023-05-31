@@ -1,7 +1,11 @@
-package de.marchinrichs.sspkata.sspservice.bot;
+package de.marchinrichs.sspkata.sspservice.service;
 
 import de.marchinrichs.sspkata.sspapi.model.bot.BotId;
 import de.marchinrichs.sspkata.sspapi.model.bot.BotWrite;
+import de.marchinrichs.sspkata.sspservice.entity.BotEntity;
+import de.marchinrichs.sspkata.sspservice.entity.BotEntityMapper;
+import de.marchinrichs.sspkata.sspservice.repository.BotRepository;
+import de.marchinrichs.sspkata.sspservice.service.BotService;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;

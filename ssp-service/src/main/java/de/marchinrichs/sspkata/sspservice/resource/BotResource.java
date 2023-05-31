@@ -1,8 +1,9 @@
-package de.marchinrichs.sspkata.sspservice.bot;
+package de.marchinrichs.sspkata.sspservice.resource;
 
 import de.marchinrichs.sspkata.sspapi.model.bot.BotId;
 import de.marchinrichs.sspkata.sspapi.model.bot.Bot;
 import de.marchinrichs.sspkata.sspapi.model.bot.BotWrite;
+import de.marchinrichs.sspkata.sspservice.service.BotService;
 import jakarta.ws.rs.*;
 import jakarta.ws.rs.core.MediaType;
 import jakarta.ws.rs.core.Response;

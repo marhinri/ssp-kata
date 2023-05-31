@@ -2,8 +2,8 @@ package de.marchinrichs.sspkata.sspbot.init;
 
 import de.marchinrichs.sspkata.sspapi.model.bot.BotId;
 import de.marchinrichs.sspkata.sspapi.model.bot.BotWrite;
-import de.marchinrichs.sspkata.sspbot.data.BotEntity;
-import de.marchinrichs.sspkata.sspbot.data.BotRepository;
+import de.marchinrichs.sspkata.sspbot.entity.BotEntity;
+import de.marchinrichs.sspkata.sspbot.repository.BotRepository;
 import jakarta.ws.rs.client.Client;
 import jakarta.ws.rs.client.ClientBuilder;
 import jakarta.ws.rs.client.Entity;
@@ -15,7 +15,6 @@ import org.springframework.context.event.EventListener;
 import org.springframework.stereotype.Component;
 
 import java.net.URISyntaxException;
-import java.util.UUID;
 
 @Component
 public class SignIn {

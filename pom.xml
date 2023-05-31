@@ -17,7 +17,6 @@
     <modules>
         <module>ssp-bot</module>
         <module>ssp-service</module>
-        <module>ssp-client</module>
 		<module>ssp-api</module>
 	</modules>
     <properties>

@@ -1,4 +1,4 @@
-package de.marchinrichs.sspkata.sspbot.round;
+package de.marchinrichs.sspkata.sspbot.util;
 
 import org.springframework.stereotype.Component;
 

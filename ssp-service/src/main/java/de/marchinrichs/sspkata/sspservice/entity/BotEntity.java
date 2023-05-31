@@ -1,9 +1,8 @@
-package de.marchinrichs.sspkata.sspservice.bot;
+package de.marchinrichs.sspkata.sspservice.entity;
 
 import jakarta.persistence.*;
 import lombok.*;
 
-import java.net.URI;
 import java.util.UUID;
 
 @Entity

@@ -1,8 +1,11 @@
-package de.marchinrichs.sspkata.sspservice.bot;
+package de.marchinrichs.sspkata.sspservice.service;
 
 import de.marchinrichs.sspkata.sspapi.model.bot.Bot;
 import de.marchinrichs.sspkata.sspapi.model.bot.BotId;
 import de.marchinrichs.sspkata.sspapi.model.bot.BotWrite;
+import de.marchinrichs.sspkata.sspservice.entity.BotEntity;
+import de.marchinrichs.sspkata.sspservice.entity.BotEntityMapper;
+import de.marchinrichs.sspkata.sspservice.repository.BotRepository;
 import jakarta.ws.rs.NotFoundException;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;

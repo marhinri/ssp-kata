@@ -1,8 +1,9 @@
-package de.marchinrichs.sspkata.sspbot.round;
+package de.marchinrichs.sspkata.sspbot.resource;
 
-import de.marchinrichs.sspkata.sspapi.round.Call;
-import de.marchinrichs.sspkata.sspapi.round.CallResponse;
-import de.marchinrichs.sspkata.sspapi.round.RoundResult;
+import de.marchinrichs.sspkata.sspapi.model.round.Call;
+import de.marchinrichs.sspkata.sspapi.model.round.CallResponse;
+import de.marchinrichs.sspkata.sspapi.model.round.RoundResult;
+import de.marchinrichs.sspkata.sspbot.service.RoundService;
 import jakarta.ws.rs.*;
 import jakarta.ws.rs.core.MediaType;
 import jakarta.ws.rs.core.Response;

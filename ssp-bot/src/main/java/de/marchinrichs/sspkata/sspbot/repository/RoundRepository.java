@@ -1,5 +1,6 @@
-package de.marchinrichs.sspkata.sspbot.data;
+package de.marchinrichs.sspkata.sspbot.repository;
 
+import de.marchinrichs.sspkata.sspbot.entity.RoundEntity;
 import org.springframework.data.repository.CrudRepository;
 
 import java.util.UUID;

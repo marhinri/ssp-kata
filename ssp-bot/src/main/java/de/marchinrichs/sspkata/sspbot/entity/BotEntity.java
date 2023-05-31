@@ -1,4 +1,4 @@
-package de.marchinrichs.sspkata.sspbot.data;
+package de.marchinrichs.sspkata.sspbot.entity;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;

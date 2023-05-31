@@ -1,15 +1,16 @@
-package de.marchinrichs.sspkata.sspservice.bot;
+package de.marchinrichs.sspkata.sspservice.resource;
 
 import de.marchinrichs.sspkata.sspapi.model.bot.Bot;
 import de.marchinrichs.sspkata.sspapi.model.bot.BotId;
 import de.marchinrichs.sspkata.sspapi.model.bot.BotWrite;
+import de.marchinrichs.sspkata.sspservice.JerseySpringTest;
+import de.marchinrichs.sspkata.sspservice.resource.BotResource;
+import de.marchinrichs.sspkata.sspservice.service.BotService;
 import jakarta.ws.rs.NotFoundException;
 import jakarta.ws.rs.client.Entity;
 import jakarta.ws.rs.core.GenericType;
 import jakarta.ws.rs.core.Response;
-import org.json.JSONArray;
 import org.json.JSONException;
-import org.json.JSONObject;
 import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;

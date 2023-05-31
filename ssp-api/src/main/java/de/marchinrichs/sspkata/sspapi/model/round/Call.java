@@ -1,4 +1,4 @@
-package de.marchinrichs.sspkata.sspapi.round;
+package de.marchinrichs.sspkata.sspapi.model.round;
 
 import lombok.*;
 

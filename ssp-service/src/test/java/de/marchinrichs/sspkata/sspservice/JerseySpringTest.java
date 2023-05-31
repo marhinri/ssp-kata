@@ -1,4 +1,4 @@
-package de.marchinrichs.sspkata.sspservice.bot;
+package de.marchinrichs.sspkata.sspservice;
 
 import java.util.Collections;
 import java.util.HashMap;

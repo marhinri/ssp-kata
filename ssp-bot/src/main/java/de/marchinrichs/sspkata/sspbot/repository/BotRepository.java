@@ -1,5 +1,6 @@
-package de.marchinrichs.sspkata.sspservice.bot;
+package de.marchinrichs.sspkata.sspbot.repository;
 
+import de.marchinrichs.sspkata.sspbot.entity.BotEntity;
 import org.springframework.data.repository.CrudRepository;
 
 import java.util.UUID;

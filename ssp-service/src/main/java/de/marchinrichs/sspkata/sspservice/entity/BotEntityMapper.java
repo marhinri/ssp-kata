@@ -1,4 +1,4 @@
-package de.marchinrichs.sspkata.sspservice.bot;
+package de.marchinrichs.sspkata.sspservice.entity;
 
 import de.marchinrichs.sspkata.sspapi.model.bot.Bot;
 import de.marchinrichs.sspkata.sspapi.model.bot.BotWrite;
