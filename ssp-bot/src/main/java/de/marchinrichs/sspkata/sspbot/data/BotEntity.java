@@ -2,9 +2,11 @@ package de.marchinrichs.sspkata.sspbot.data;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import lombok.*;
 
+import java.util.List;
 import java.util.UUID;
 
 @Entity
@@ -28,4 +30,7 @@ public class BotEntity {
     private int lost;
 
     private int draw;
+
+    @OneToMany(mappedBy="bot")
+    private List<RoundEntity> roundEntityList;
 }

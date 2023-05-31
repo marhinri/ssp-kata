@@ -1,9 +1,7 @@
 package de.marchinrichs.sspkata.sspbot.data;
 
 import de.marchinrichs.sspkata.sspapi.round.Result;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.*;
 
 import java.util.UUID;
@@ -18,7 +16,15 @@ import java.util.UUID;
 public class RoundEntity {
 
     @Id
-    UUID id;
+    private UUID id;
 
-    Result result;
+    @ManyToOne
+    @JoinColumn(name="bot_id", nullable=false)
+    private BotEntity bot;
+
+    private String opponent;
+
+    private Result result;
+
+    private int stake;
 }
