@@ -17,7 +17,9 @@
     <modules>
         <module>ssp-bot</module>
         <module>ssp-service</module>
-    </modules>
+        <module>ssp-client</module>
+		<module>ssp-api</module>
+	</modules>
     <properties>
 		<java.version>17</java.version>
 	</properties>

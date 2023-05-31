@@ -1,0 +1,19 @@
+server:
+  port: 9898
+
+spring:
+  datasource:
+    url: jdbc:h2:mem:BOTDB
+    username: ssp-kata
+    password: ssp-kata
+
+sspkata:
+  bot:
+    name: sample-bot-2000
+    url: http://localhost:9898
+  server:
+    url: http://localhost:9090
+
+logging:
+  level:
+    root: DEBUG

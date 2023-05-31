@@ -1,7 +1,7 @@
 package de.marchinrichs.sspkata.sspservice.bot;
 
-import de.marchinrichs.sspkata.sspservice.bot.model.BotId;
-import de.marchinrichs.sspkata.sspservice.bot.model.BotWrite;
+import de.marchinrichs.sspkata.sspapi.model.bot.BotId;
+import de.marchinrichs.sspkata.sspapi.model.bot.BotWrite;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;
@@ -10,7 +10,7 @@ import org.mockito.MockitoAnnotations;
 
 import java.util.UUID;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.Mockito.when;
 
 class BotWriteServiceTest {
@@ -44,7 +44,7 @@ class BotWriteServiceTest {
                 .clientURL(botWrite.getClientURL())
                 .build();
 
-        when(botEntityMapper.mapBotToBotEntity(botWrite)).thenReturn(botEntity);
+        when(botEntityMapper.mapBotWriteToBotEntity(botWrite)).thenReturn(botEntity);
         when(botRepository.save(botEntity)).thenReturn(botEntity);
 
         BotId botId = botService.addBot(botWrite);

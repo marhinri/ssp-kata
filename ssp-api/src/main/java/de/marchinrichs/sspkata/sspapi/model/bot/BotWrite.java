@@ -1,12 +1,13 @@
-package de.marchinrichs.sspkata.sspservice.bot.model;
+package de.marchinrichs.sspkata.sspapi.model.bot;
 
-import lombok.Builder;
-import lombok.Data;
+import lombok.*;
 
 import java.net.URL;
 
-@Data
+@Getter
 @Builder
+@NoArgsConstructor
+@AllArgsConstructor
 public class BotWrite {
 
     private String name;

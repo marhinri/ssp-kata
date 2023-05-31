@@ -1,13 +1,14 @@
-package de.marchinrichs.sspkata.sspservice.bot.model;
+package de.marchinrichs.sspkata.sspapi.model.bot;
 
-import lombok.Builder;
-import lombok.Data;
+import lombok.*;
 
 import java.net.URI;
 import java.util.UUID;
 
-@Data
+@Getter
 @Builder
+@NoArgsConstructor
+@AllArgsConstructor
 public class Bot {
 
     private UUID id;

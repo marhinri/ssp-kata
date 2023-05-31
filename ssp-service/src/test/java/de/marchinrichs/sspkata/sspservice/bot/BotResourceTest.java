@@ -1,10 +1,11 @@
 package de.marchinrichs.sspkata.sspservice.bot;
 
-import de.marchinrichs.sspkata.sspservice.bot.model.Bot;
-import de.marchinrichs.sspkata.sspservice.bot.model.BotId;
-import de.marchinrichs.sspkata.sspservice.bot.model.BotWrite;
+import de.marchinrichs.sspkata.sspapi.model.bot.Bot;
+import de.marchinrichs.sspkata.sspapi.model.bot.BotId;
+import de.marchinrichs.sspkata.sspapi.model.bot.BotWrite;
 import jakarta.ws.rs.NotFoundException;
 import jakarta.ws.rs.client.Entity;
+import jakarta.ws.rs.core.GenericType;
 import jakarta.ws.rs.core.Response;
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -18,6 +19,7 @@ import java.util.UUID;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.when;
 
 public class BotResourceTest extends JerseySpringTest {
@@ -38,27 +40,30 @@ public class BotResourceTest extends JerseySpringTest {
     protected Class<?> getResourceClass() {
         return BotResource.class;
     }
+
     @Test
     public void addBot_returns_created() {
         String name = "bot1";
         String url = "http://localhost:1234";
         UUID uuid = UUID.randomUUID();
 
-        when(botService.addBot(BotWrite.builder()
+        BotWrite botWrite = BotWrite.builder()
                 .name(name)
                 .clientURL(url)
-                .build()))
+                .build();
+
+        when(botService.addBot(any()))
                 .thenReturn(BotId.builder().id(uuid).build());
 
         Response response = target("bots").request()
-                .post(Entity.json("{\"name\":\"bot1\",\"clientURL\":\"http://localhost:1234\"}"));
+                .post(Entity.json(botWrite));
 
         assertEquals(Response.Status.CREATED.getStatusCode(), response.getStatus());
-        assertTrue(response.readEntity(String.class).contains("{\"id\":\""+ uuid + "\""));
+        assertEquals(uuid, response.readEntity(BotId.class).getId());
     }
 
     @Test
-    public void getBots_returns_ok() throws JSONException {
+    public void getBots_returns_ok() {
         UUID uuid1 = UUID.randomUUID();
         UUID uuid2 = UUID.randomUUID();
 
@@ -83,10 +88,11 @@ public class BotResourceTest extends JerseySpringTest {
         when(botService.getBots()).thenReturn(List.of(bot1, bot2));
         Response response = target("bots").request().get();
 
-        JSONArray jsonArray = new JSONArray(response.readEntity(String.class));
+        List<Bot> bots = response.readEntity(new GenericType<>() {
+        });
 
         assertEquals(Response.Status.OK.getStatusCode(), response.getStatus());
-        assertEquals(2, jsonArray.length());
+        assertEquals(2, bots.size());
     }
 
 
@@ -106,10 +112,10 @@ public class BotResourceTest extends JerseySpringTest {
         when(botService.getBot(uuid)).thenReturn(bot);
         Response response = target("bots").path(uuid.toString()).request().get();
 
-        JSONObject jsonObject = new JSONObject(response.readEntity(String.class));
+        Bot botResponse = response.readEntity(Bot.class);
 
         assertEquals(Response.Status.OK.getStatusCode(), response.getStatus());
-        assertEquals(jsonObject.get("id"), uuid.toString());
+        assertEquals(uuid, botResponse.getId());
     }
 
     @Test

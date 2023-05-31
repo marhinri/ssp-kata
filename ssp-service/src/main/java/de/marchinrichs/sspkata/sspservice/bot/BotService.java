@@ -1,8 +1,8 @@
 package de.marchinrichs.sspkata.sspservice.bot;
 
-import de.marchinrichs.sspkata.sspservice.bot.model.Bot;
-import de.marchinrichs.sspkata.sspservice.bot.model.BotId;
-import de.marchinrichs.sspkata.sspservice.bot.model.BotWrite;
+import de.marchinrichs.sspkata.sspapi.model.bot.Bot;
+import de.marchinrichs.sspkata.sspapi.model.bot.BotId;
+import de.marchinrichs.sspkata.sspapi.model.bot.BotWrite;
 import jakarta.ws.rs.NotFoundException;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -22,7 +22,7 @@ public class BotService {
     public BotId addBot(BotWrite botWrite) {
 
         BotEntity botEntity = botRepository.save(
-                botEntityMapper.mapBotToBotEntity(botWrite));
+                botEntityMapper.mapBotWriteToBotEntity(botWrite));
 
         return BotId.builder().id(botEntity.getId()).build();
     }

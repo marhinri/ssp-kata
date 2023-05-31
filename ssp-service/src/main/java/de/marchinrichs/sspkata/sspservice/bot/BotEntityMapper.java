@@ -1,7 +1,7 @@
 package de.marchinrichs.sspkata.sspservice.bot;
 
-import de.marchinrichs.sspkata.sspservice.bot.model.Bot;
-import de.marchinrichs.sspkata.sspservice.bot.model.BotWrite;
+import de.marchinrichs.sspkata.sspapi.model.bot.Bot;
+import de.marchinrichs.sspkata.sspapi.model.bot.BotWrite;
 import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
@@ -10,11 +10,12 @@ import java.util.List;
 @Component
 public class BotEntityMapper {
 
-    public BotEntity mapBotToBotEntity(BotWrite botWrite) {
+    public BotEntity mapBotWriteToBotEntity(BotWrite botWrite) {
         return BotEntity.builder()
                 .name(botWrite.getName())
                 .credit(100)
                 .won(0)
+
                 .lost(0)
                 .clientURL(botWrite.getClientURL())
                 .build();
