@@ -3,9 +3,19 @@ package de.marchinrichs.sspkata.sspbot.util;
 import java.util.Random;
 
 public enum RandomSymbol {
-    scissor,
-    paper,
-    stone;
+    ROCK("rock"),
+    PAPER("paper"),
+    SCISSORS("scissors");
+
+    private String value;
+
+    RandomSymbol(String value) {
+        this.value = value;
+    }
+
+    public String getValue() {
+        return value;
+    }
 
     private static final Random PRNG = new Random();
 

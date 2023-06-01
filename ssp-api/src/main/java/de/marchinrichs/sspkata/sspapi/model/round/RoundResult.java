@@ -3,6 +3,7 @@ package de.marchinrichs.sspkata.sspapi.model.round;
 import lombok.*;
 
 @Getter
+@Setter
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor

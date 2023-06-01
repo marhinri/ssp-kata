@@ -63,13 +63,13 @@ public class RoundService {
 
         roundEntity.setResult(result.getResult());
 
-        botEntity = processResult(botEntity, result);
+        processResult(botEntity, result);
 
         botRepository.save(botEntity);
         roundRepository.save(roundEntity);
     }
 
-    private BotEntity processResult(BotEntity botEntity, RoundResult result) {
+    private void processResult(BotEntity botEntity, RoundResult result) {
 
         switch (result.getResult()) {
             case won -> {
@@ -83,8 +83,6 @@ public class RoundService {
             case draw -> botEntity.setDraw(botEntity.getDraw()+1);
         }
 
-        return botEntity;
     }
-
 
 }

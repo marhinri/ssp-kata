@@ -13,7 +13,3 @@ sspkata:
     url: http://localhost:9898
   server:
     url: http://localhost:9090
-
-logging:
-  level:
-    root: DEBUG
