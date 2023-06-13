@@ -1,10 +1,14 @@
-package de.marchinrichs.sspkata.sspbot.resource;
+package de.marchinrichs.sspkata.sspbot.controller;
 
 import de.marchinrichs.sspkata.sspapi.model.round.Call;
 import de.marchinrichs.sspkata.sspapi.model.round.CallResponse;
 import de.marchinrichs.sspkata.sspapi.model.round.RoundResult;
 import de.marchinrichs.sspkata.sspbot.service.RoundService;
-import jakarta.ws.rs.*;
+import jakarta.ws.rs.Consumes;
+import jakarta.ws.rs.POST;
+import jakarta.ws.rs.Path;
+import jakarta.ws.rs.PathParam;
+import jakarta.ws.rs.Produces;
 import jakarta.ws.rs.core.MediaType;
 import jakarta.ws.rs.core.Response;
 import lombok.RequiredArgsConstructor;
@@ -15,7 +19,7 @@ import java.util.UUID;
 @Path("/round")
 @Component
 @RequiredArgsConstructor
-public class RoundResource {
+public class RoundController {
 
     private final RoundService roundService;
 

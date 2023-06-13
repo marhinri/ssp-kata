@@ -1,4 +1,4 @@
-package de.marchinrichs.sspkata.sspservice.resource;
+package de.marchinrichs.sspkata.sspservice.controller;
 
 import de.marchinrichs.sspkata.sspapi.model.bot.BotId;
 import de.marchinrichs.sspkata.sspapi.model.bot.Bot;
@@ -15,7 +15,7 @@ import java.util.UUID;
 @Path("/bots")
 @Component
 @RequiredArgsConstructor
-public class BotResource {
+public class BotController {
 
     private final BotService botService;
 

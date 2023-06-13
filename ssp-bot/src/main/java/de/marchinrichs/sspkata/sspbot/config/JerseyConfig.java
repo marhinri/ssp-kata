@@ -1,6 +1,6 @@
 package de.marchinrichs.sspkata.sspbot.config;
 
-import de.marchinrichs.sspkata.sspbot.resource.RoundResource;
+import de.marchinrichs.sspkata.sspbot.controller.RoundController;
 import org.glassfish.jersey.server.ResourceConfig;
 import org.springframework.stereotype.Component;
 
@@ -8,6 +8,6 @@ import org.springframework.stereotype.Component;
 public class JerseyConfig extends ResourceConfig {
 
     public JerseyConfig() {
-        register(RoundResource.class);
+        register(RoundController.class);
     }
 }

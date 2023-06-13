@@ -1,4 +1,4 @@
-package de.marchinrichs.sspkata.sspservice.resource;
+package de.marchinrichs.sspkata.sspservice.controller;
 
 import de.marchinrichs.sspkata.sspapi.model.game.Game;
 import de.marchinrichs.sspkata.sspservice.service.GameService;
@@ -16,7 +16,7 @@ import java.util.List;
 @Path("/game")
 @Component
 @RequiredArgsConstructor
-public class GameResource {
+public class GameController {
 
     private final GameService gameService;
 

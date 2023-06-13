@@ -1,10 +1,9 @@
-package de.marchinrichs.sspkata.sspservice.resource;
+package de.marchinrichs.sspkata.sspservice.controller;
 
 import de.marchinrichs.sspkata.sspapi.model.bot.Bot;
 import de.marchinrichs.sspkata.sspapi.model.bot.BotId;
 import de.marchinrichs.sspkata.sspapi.model.bot.BotWrite;
 import de.marchinrichs.sspkata.sspservice.JerseySpringTest;
-import de.marchinrichs.sspkata.sspservice.resource.BotResource;
 import de.marchinrichs.sspkata.sspservice.service.BotService;
 import jakarta.ws.rs.NotFoundException;
 import jakarta.ws.rs.client.Entity;
@@ -19,14 +18,13 @@ import java.util.List;
 import java.util.UUID;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.when;
 
-public class BotResourceTest extends JerseySpringTest {
+public class BotControllerTest extends JerseySpringTest {
 
     @InjectMocks
-    private BotResource subject;
+    private BotController subject;
 
     @Mock
     private BotService botService;
@@ -39,7 +37,7 @@ public class BotResourceTest extends JerseySpringTest {
 
     @Override
     protected Class<?> getResourceClass() {
-        return BotResource.class;
+        return BotController.class;
     }
 
     @Test
